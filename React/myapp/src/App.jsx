@@ -1,13 +1,21 @@
 import React from 'react'
-import Bharath from './Bharath'
-import Balu from './Balu'
+import Reddy from './Navbar/Reddy.jsx'
+import Navbar from './Navbar/Navbar.jsx'
+import GrandFather from './Props/GrandFather.jsx'
+import Counter from './useStateHook/Counter.jsx'
+import Password from './useStateHook/Password.jsx'
+
 
 const App = () => {
   return (
     <div>
-      <h1>hello</h1>
-      <Bharath/>
-      <Balu/>
+
+      {/* <GrandFather/> */}
+      {/* <h1>Hello APP</h1> */}
+      {/* <Reddy/> */}
+      {/* <Navbar/> */}
+      {/* <Counter/> */}
+      <Password/>
     </div>
   )
 }
