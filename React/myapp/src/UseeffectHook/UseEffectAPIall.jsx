@@ -1,17 +1,28 @@
 import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 
 const UseEffectAPIall = () => {
     const[data , setData]=useState([])
 
-  const details =()=>{
+  // const details =()=>{
+  //   try {
+  //       const datas = fetch('https://jsonplaceholder.typicode.com/users')
+  //  .then(res=>res.json())
+  //  .then((user)=>{
+  //     setData(user)
+  //  })
+  //   } catch (error) {
+  //       console.log(error)
+  //   }
+  // }
+
+//axios library
+  const details =async()=>{
     try {
-        const datas = fetch('https://jsonplaceholder.typicode.com/users')
-   .then(res=>res.json())
-   .then((user)=>{
-      setData(user)
-   })
+      const bharath = await axios.get('https://jsonplaceholder.typicode.com/users')
+      setData(bharath.data)
     } catch (error) {
-        console.log(error)
+      console.log(error)
     }
   }
 
@@ -26,11 +37,11 @@ console.log(data)
       <button className='border-2 p-2 m-20' onClick={details}>Get Data</button>
       {
         data.map((user)=>{
-            return (
-                <>
-                <p>{user.name}-------{user.email}</p>
-                </>
-            )
+        return(
+          <>
+          <p>{user.name}</p>
+          </>
+        )
         })
       }
     </div>

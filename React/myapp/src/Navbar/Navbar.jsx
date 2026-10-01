@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 // import './Navbar.css'
+import { VariableContext } from '../ContextAPI/VariableContext'
 
 const Navbar = () => {
+  const username= useContext(VariableContext)
   return (
     <div>
       <nav>
@@ -20,7 +22,7 @@ const Navbar = () => {
             <li className='p-10 hover:bg-sky-800 hover:text-white'><a href="">News</a></li>
         </ul>
       </nav>
-
+<p>{username}</p>
 <div className="w-full h-screen bg-[url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2ms4wxw3QzXk4gAuddD5MbiFemHCAQGhR_TEkc7MGhA&s=10')] bg-cover bg-center bg-no-repeat">
 </div>
     </div>

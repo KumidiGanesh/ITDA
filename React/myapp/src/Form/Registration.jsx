@@ -1,6 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { VariableContext } from '../ContextAPI/VariableContext'
 
 const Registration = () => {
+
+  const username = useContext(VariableContext)
     const[name , setName]=useState("")
     const[email , setEmail]= useState("")
     const[password , setPassword] =useState("")
@@ -28,6 +31,7 @@ const Registration = () => {
   return (
     <div className='justify-center align-center w-full bg-gray-50'> 
       <h1 className='text-center text-5xl mb-10'>Registration Form</h1>
+      {username}
      <div className='p-10 m-10 shadow-2xl w-1/2  m-auto bg-gray-300 justify-start'>
          <form action="">
         <label htmlFor="">Name : </label>
