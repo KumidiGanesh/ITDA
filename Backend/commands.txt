@@ -1,0 +1,14 @@
+npm init -y 
+create server.js ---- main file
+npm i express ---- express server
+npm i nodemon ---- to restart server multiple times when changes done in code 
+npm i mongoose ---- to connect with mongodb database and to create schema 
+
+
+==> create Folders - models , controllers , middleware , routes
+==> then u have to create Schema inside model folder export the Schema
+==> then u have to create controller file inside controller and import schema inside controller and write logic function and export them by using module.exports
+==> the create routes file inside routes folder and use express.Router() and create routes and export route by using moduke.exports
+==> import route inside server.js app.use(express.json())
+app.use(routes) 
+
