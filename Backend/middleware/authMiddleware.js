@@ -14,23 +14,23 @@ dotenv.config()
 // next()
 // }
 
+const verifyToken =(req,res,next)=>{
+try {
+    const authHeader = req.headers.authorization || req.headers.Authorization;
 
-const verifyToken =async(req,res,next)=>{
-const authHeader = req.headers.Authorization || req.headers.authorization
-
-if(!authHeader){
-    return res.json("Unauthorized")
+    if(!authHeader){
+        return res.json("Un-Authorized")
+    }
+    const token = authHeader.split(" ")[1]
+    if(!token){
+        return res.json("No Token Provided")
+    }
+    const payload = jwt.verify(token ,process.env.JWT_SECRET)
+    req.user = payload
+    next()
+} catch (error) {
+    res.json(error)
+}
 }
 
-const token = authHeader.split(" ")[1]
-
-if(!token){
-    return res.json("No token Provided")
-}
-
-const payload = jwt.verify(token ,process.env.JWT_SECRET)
-      req.user = payload
-       next()
-}
-
-module.exports ={verifyToken}
+module.exports = {verifyToken}
